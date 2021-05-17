@@ -34,6 +34,10 @@ function dig (length)
     repeat
         --- First it digs in front of itself, then moves into the hole it dug and digs above and below
         turtle.dig()
+        --- This is to stop gravel from breaking things
+        while turtle.detect() do
+            turtle.dig()
+            end
         turtle.forward()
         turtle.digUp()
         turtle.digDown()
