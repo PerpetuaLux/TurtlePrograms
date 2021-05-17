@@ -51,8 +51,6 @@ function dig (length)
         turtle.select(1)
         length = length - 1
     until length == 0
-    --- Once it's finished digging it performs one last deposit
-    deposit()
 end
 
 function turn()
@@ -111,6 +109,8 @@ function strip ()
            turn()
         end
     until strips == 0
+    --- Once it's finished digging it performs one last deposit
+    deposit()
 end
 
 --- Now the actual code
