@@ -6,7 +6,49 @@
 --- First declare variables
 maxStrips = 0 --- Maximum number of strips, should be multiple of 2 for efficiency, 0 for unlimited
 stripLength = 32 --- Length of strips, 32 default, don't go too high or chunks may not be loaded
+allowInefficient = false --- Whether to allow odd multiples of strips, which wastes fuel and is inefficient
+side = 0 --- Which side of the mine is the turtle, left = 0, right = 1
 
+
+--- Then I define the functions, starting with deposit, the first 2 are the same as with Strip3
+function deposit ()
+    --- It makes sure slot 1 is selected, which should hold the remote chest, and then places it below itself
+    turtle.select(1)
+    turtle.placeDown()
+    --- It then sets the variable for the repeat block to go through the inventory
+    a = 16
+    repeat
+        --- It selects the next slot, and puts the items into the chest below
+        turtle.select(a)
+        turtle.dropDown()
+        a = a -1
+    until a == 1
+    --- Finally it makes sure the first slot is selected, and picks the chest back up
+    turtle.select(1)
+    turtle.digDown()
+end
+
+--- Then I define the dig function
+function dig (length)
+    --- A repeat block that will go for the length of the parameter variable
+    repeat
+        --- First it digs in front of itself, then moves into the hole it dug and digs above and below
+        turtle.dig()
+        turtle.forward()
+        turtle.digUp()
+        turtle.digDown()
+        --- Then it checks if it's inventory is full or not
+        if turtle.getItemCount() > 0 then
+            --- If it is full then it deposits it's items
+            deposit()
+        end
+        --- Finally it makes sure the first slot is selected, and  decrements the length count by 1
+        turtle.select(1)
+        length = length - 1
+    until length == 0
+    --- Once it's finished digging it performs one last deposit
+    deposit()
+end
 
 
 ---
