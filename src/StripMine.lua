@@ -82,7 +82,7 @@ function strip ()
 
     --- Get the maximum number of strips based on fuel
     a = turtle.getFuelLevel()
-    fuelStrips = math.floor(a / (stripLength * 2.2))
+    fuelStrips = math.floor(a / (stripLength * 1.2))
     --- check if maxStrips is 0, therefore infinite, and then set maxStrips based on fuel level
     if maxStrips == 0 then
         maxStrips = fuelStrips
