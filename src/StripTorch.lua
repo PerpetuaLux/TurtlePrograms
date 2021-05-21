@@ -50,6 +50,16 @@ function move(a)
     until a == 0
 end
 
+--- fetch more torches
+function restock()
+    turtle.select(2)
+    turtle.placeDown()
+    turtle.select(1)
+    turtle.suckDown()
+    turtle.select(2)
+    turtle.digDown()
+    turtle.select(1)
+end
 
 function light()
     --- Place torches and move for the length of the strip, 1 torch every 6 blocks
@@ -57,6 +67,9 @@ function light()
     repeat
         placeTorch()
         move(6)
+        if turtle.getItemCount(1) < 5 then
+            restock()
+        end
         x = x - 1
     until x == 0
     --- Move the remaining distance
@@ -88,7 +101,7 @@ end
 --- Now the actual code
 
 ---Refuels
-turtle.select(2)
+turtle.select(3)
 turtle.refuel()
 turtle.select(1)
 

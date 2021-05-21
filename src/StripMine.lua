@@ -42,8 +42,7 @@ function dig (length)
         turtle.digUp()
         turtle.digDown()
         --- Then it checks if it's inventory is full or not
-        turtle.select(16)
-        if turtle.getItemCount() > 0 then
+        if turtle.getItemCount(16) > 0 then
             --- If it is full then it deposits it's items
             deposit()
         end
