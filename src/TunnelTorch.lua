@@ -8,24 +8,28 @@
 --- First the variables
 tunnelLength = 128 --- The length of the tunnel
 tunnelWidth = 5 --- The width of the tunnel
-direction = 1 --- Which direction relative to where the turtle is facing do you want it to progress, left = 0, right = 1
+direction = 1 --- Which direction relative to where the turtle is facing do you want it to progress,
+--- left = 0, right = 1
 
 --- Then the functions
 
 --- This checks if something is in front of it and then moves
-function move()
-    --- If something is in front, it waits for 10 seconds and checks again
-    if turtle.detect() then
-        sleep(10)
-        --- If something is still in front, it sends an error and exits the program
+function move(a)
+    repeat
+        --- If something is in front, it waits for 10 seconds and checks again
         if turtle.detect() then
-            error("I got stuck :(")
-            exit()
+            sleep(10)
+            --- If something is still in front, it sends an error and exits the program
+            if turtle.detect() then
+                error("I got stuck :(")
+                exit()
+            end
+            --- If there isn't anything in front it moves
+        else
+            turtle.forward()
         end
-        --- If there isn't anything in front it moves
-    else
-        turtle.forward()
-    end
+        a = a - 1
+    until a == 0
 end
 
 function placeTorch()
@@ -37,7 +41,49 @@ function placeTorch()
     turtle.turnLeft()
 end
 
+function turn()
+    if direction == 0 then
+        turtle.turnLeft()
+        move(tunnelWidth)
+        turtle.turnLeft()
+        direction = 1
+    elseif direction == 1 then
+        turtle.turnRight()
+        move(tunnelWidth)
+        turtle.turnRight()
+        direction = 0
+    end
+end
 
+function light()
+    --- Place torches and move for the length of the tunnel, 1 torch every 6 blocks
+    x = math.floor(tunnelLength / 6)
+    repeat
+        placeTorch()
+        move(6)
+        x = x - 1
+    until x == 0
+end
+
+function go()
+    --- Move forward once to line up (Should be placed just before first strip entrance)
+    turtle.forward()
+    --- Light this side of the tunnel
+    light()
+    --- turn and move to the other side of the tunnel
+    turn()
+    --- Light this side of the tunnel
+    light()
+end
+
+--- And now the actual code
+--- quick refuel
+turtle.select(2)
+turtle.refuel()
+turtle.select(1)
+
+--- go
+go()
 
 ---
 ---
