@@ -59,6 +59,10 @@ function light()
         move(6)
         x = x - 1
     until x == 0
+    --- Move the remaining distance
+    placeTorch()
+    x = stripLength - (math.floor(stripLength / 6) * 6)
+    move(x)
 end
 
 function go()
