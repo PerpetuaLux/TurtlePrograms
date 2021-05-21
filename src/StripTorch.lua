@@ -67,7 +67,7 @@ function light()
     repeat
         placeTorch()
         move(6)
-        if turtle.getItemCount(1) < 5 then
+        if turtle.getItemCount(1) == 0 then
             restock()
         end
         x = x - 1
