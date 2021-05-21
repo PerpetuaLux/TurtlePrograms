@@ -7,7 +7,8 @@
 --- First the variables
 tunnelLength = 128 --- The length of the tunnel
 tunnelWidth = 5 --- The width of the tunnel
-direction = 1 --- Which direction relative to where the turtle is facing do you want it to progress, left = 0, right = 1
+direction = 1 --- Which direction relative to where the turtle is facing do you want it to progress,
+--- left = 0, right = 1
 
 
 --- Then I define the functions, starting with deposit, these are mostly the same as with StripMine
