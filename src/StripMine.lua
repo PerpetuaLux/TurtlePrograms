@@ -7,7 +7,8 @@
 maxStrips = 0 --- Maximum number of strips, should be multiple of 2 for efficiency, 0 for unlimited
 stripLength = 32 --- Length of strips, 32 default, don't go too high or chunks may not be loaded
 preventInefficient = true --- Whether to allow odd multiples of strips, which wastes fuel and is inefficient
-direction = 0 --- Which direction relative to where the turtle is facing do you want it to progress, left = 0, right = 1
+direction = 0 --- Which direction relative to where the turtle is facing do you want it to progress,
+--- left = 0, right = 1
 
 
 --- Then I define the functions, starting with deposit, the first 2 are the same as with Strip3
