@@ -27,7 +27,7 @@ function deposit ()
         turtle.select(a)
         turtle.dropDown()
         a = a -1
-    until a == 1
+    until a == 2
     --- Finally it makes sure the first slot is selected, and picks the chest back up
     turtle.select(1)
     turtle.digDown()
