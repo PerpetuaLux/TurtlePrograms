@@ -31,6 +31,59 @@ function deposit ()
     turtle.digDown()
 end
 
+--- Then I define the refuel function
+function refuel()
+    --- Select the refuel chest and place it
+    turtle.select(2)
+    turtle.placeDown()
+    --- Take the fuel out and refuel
+    turtle.suckDown()
+    turtle.refuel()
+    --- Dig the refuel chest back up and then select the first slot
+    turtle.digDown()
+    turtle.select(1)
+end
+
+--- Then I define the dig function
+function dig (length)
+    --- A repeat block that will go for the length of the parameter variable
+    repeat
+        --- First it digs in front of itself, then moves into the hole it dug and digs above and below
+        turtle.dig()
+        --- This is to stop gravel from breaking things
+        while turtle.detect() do
+            turtle.dig()
+        end
+        turtle.forward()
+        turtle.digUp()
+        turtle.digDown()
+        --- Then it checks if it's inventory is full or not
+        if turtle.getItemCount(16) > 0 then
+            --- If it is full then it deposits it's items
+            deposit()
+        end
+        --- Finally it makes sure the first slot is selected, and  decrements the length count by 1
+        turtle.select(1)
+        length = length - 1
+    until length == 0
+end
+
+--- Then the turn function
+function turn()
+    if direction == 0 then
+        turtle.turnLeft()
+        dig(1)
+        turtle.turnLeft()
+        direction = 1
+    elseif direction == 1 then
+        turtle.turnRight()
+        dig(1)
+        turtle.turnRight()
+        direction = 0
+    end
+end
+
+
 
 ---
 ---
