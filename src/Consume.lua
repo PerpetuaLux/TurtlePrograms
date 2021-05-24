@@ -16,6 +16,8 @@ direction2 = 1 --- Which direction, but up and down instead
 --- Then I define the functions, starting with deposit, these are mostly the same as with Tunnel
 function deposit ()
     --- It makes sure slot 1 is selected, which should hold the remote chest, and then places it below itself
+    --- It also makes sure the space below it is clear
+    turtle.digDown()
     turtle.select(1)
     turtle.placeDown()
     --- It then sets the variable for the repeat block to go through the inventory
@@ -33,6 +35,8 @@ end
 
 --- Then I define the refuel function
 function refuel()
+    --- It  makes sure the space below it is clear
+    turtle.digDown()
     --- Select the refuel chest and place it
     turtle.select(2)
     turtle.placeDown()
@@ -82,6 +86,59 @@ function turn()
         direction = 0
     end
 end
+
+function upDown()
+    if direction2 == 0 then
+        turtle.digDown()
+        turtle.down()
+        turtle.digDown()
+        turtle.down()
+        turtle.digDown()
+        turtle.down()
+        turtle.turnLeft()
+        turtle.turnLeft()
+    elseif direction2 == 1 then
+        turtle.digUp()
+        turtle.up()
+        turtle.digUp()
+        turtle.up()
+        turtle.digUp()
+        turtle.up()
+        turtle.turnLeft()
+        turtle.turnLeft()
+    end
+end
+
+--- And finally the consume function
+
+function consume()
+    height = consumeHeight
+    repeat
+        --- First it digs the level
+        width = consumeWidth
+        repeat
+            --- Digs the strip, turns and moves 3 blocks, then digs back
+            dig(consumeLength)
+            width = width - 1
+            --- If there is another strip to dig, it loops back
+            if width ~= 0 then
+                turn()
+                dig(consumeLength)
+                --- decrements the strips by 1
+                width = width - 1
+            end
+            --- If there are more strips to dig, it moves to where the next one will start
+            if width ~= 0 then
+                turn()
+            end
+        until width == 0
+        --- Then go up / down
+        upDown()
+        height = height - 1
+    until height == 0
+end
+
+--- Now the actual code
 
 
 
