@@ -135,8 +135,10 @@ function consume()
             end
         until width == 0
         --- Then go up / down
+        if height ~= 0 then
         upDown()
         height = height - 1
+        end
         --- Refuel if needed
         if turtle.getFuelLevel() < 5000 then
             refuel()
