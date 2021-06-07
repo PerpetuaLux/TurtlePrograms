@@ -29,8 +29,8 @@ function updateCode(code, location, name)
 
     if not (fs.exists(location)) then
         local newFile = fs.open(location, 'w')
+        newFile.write(code)
         print(name .. " has been created")
-        newFile.close()
         --- If it does, put it into a variable as old code to be compared later
     else
         local currentFile = fs.open(location, 'r')
