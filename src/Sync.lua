@@ -43,8 +43,8 @@ function updateCode(code, location, name)
         --- If there are, update it and print some info about the changes (bytes changed) if not then print that there are no changes
 ---
         if oldCode == code then
-            newFile.write(oldCode)
-            print("No changes made to " .. name .. " - Code unchanged")
+            newFile.write(code)
+            print("No changes made to " .. name)
         else
             newFile.write(code)
             print("Writing code to " .. name)
