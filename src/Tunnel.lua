@@ -8,7 +8,6 @@ tunnelWidth = 5 --- The width of the tunnel
 direction = 1 --- Which direction relative to where the turtle is facing do you want it to progress,
 --- left = 0, right = 1
 
-
 --- Then I define the functions, starting with deposit, these are mostly the same as with StripMine
 function deposit ()
     --- It makes sure slot 1 is selected, which should hold the remote chest, and then places it below itself
@@ -20,7 +19,7 @@ function deposit ()
         --- It selects the next slot, and puts the items into the chest below
         turtle.select(a)
         turtle.dropDown()
-        a = a -1
+        a = a - 1
     until a == 1
     --- Finally it makes sure the first slot is selected, and picks the chest back up
     turtle.select(1)

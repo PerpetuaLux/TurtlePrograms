@@ -9,7 +9,6 @@ preventInefficient = true --- Whether to allow odd multiples of strips, which wa
 direction = 0 --- Which direction relative to where the turtle is facing do you want it to progress,
 --- left = 0, right = 1
 
-
 --- Then I define the functions, starting with deposit, the first 2 are the same as with Strip3
 function deposit ()
     --- It makes sure slot 1 is selected, which should hold the remote chest, and then places it below itself
@@ -21,7 +20,7 @@ function deposit ()
         --- It selects the next slot, and puts the items into the chest below
         turtle.select(a)
         turtle.dropDown()
-        a = a -1
+        a = a - 1
     until a == 1
     --- Finally it makes sure the first slot is selected, and picks the chest back up
     turtle.select(1)
@@ -37,7 +36,7 @@ function dig (length)
         --- This is to stop gravel from breaking things
         while turtle.detect() do
             turtle.dig()
-            end
+        end
         turtle.forward()
         turtle.digUp()
         turtle.digDown()
@@ -105,7 +104,7 @@ function strip ()
         end
         --- If there are more strips to dig, it moves to where the next one will start
         if strips ~= 0 then
-           turn()
+            turn()
         end
     until strips == 0
     --- Once it's finished digging it performs one last deposit

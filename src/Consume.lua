@@ -11,7 +11,6 @@ direction2 = 1 --- Which direction, but up and down instead
 --- d = left = 0, right = 1
 --- d2 = down = 0, up = 1
 
-
 --- Then I define the functions, starting with deposit, these are mostly the same as with Tunnel
 function deposit ()
     --- It makes sure slot 1 is selected, which should hold the remote chest, and then places it below itself
@@ -25,7 +24,7 @@ function deposit ()
         --- It selects the next slot, and puts the items into the chest below
         turtle.select(a)
         turtle.dropDown()
-        a = a -1
+        a = a - 1
     until a == 2
     --- Finally it makes sure the first slot is selected, and picks the chest back up
     turtle.select(1)
@@ -135,8 +134,8 @@ function consume()
         until width == 0
         --- Then go up / down
         if height ~= 0 then
-        upDown()
-        height = height - 1
+            upDown()
+            height = height - 1
         end
         --- Refuel if needed
         if turtle.getFuelLevel() < 5000 then
