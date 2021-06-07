@@ -67,7 +67,7 @@ function getFile(url)
     if response == nil then
         error(consumeError)
     end
-    return response
+    return response.readAll()
 end
 
 
@@ -77,6 +77,8 @@ tunnelCode = getFile(tunnelURL)
 stripMineCode = getFile(stripMineURL)
 tunnelTorchCode = getFile(tunnelTorchURL)
 stripTorchCode = getFile(stripTorchURL)
+
+
 
 if consumeCode ~= nil then
     updateCode(consumeCode, consumeLocation, consumeName)
