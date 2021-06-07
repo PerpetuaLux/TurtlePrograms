@@ -1,5 +1,5 @@
 ---
---- A program meant to fetch and if needed update my various programs automatically, so I don't have to pastebin get everything all the fucking time
+--- A program meant to fetch and if needed update my various programs automatically - pastebin get hv06VNpm sync
 ---
 
 --- Create the strings for all the filenames
