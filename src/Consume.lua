@@ -1,5 +1,4 @@
 ---
----
 --- A program meant to completely consume a large area of land, customizable with variables
 ---
 

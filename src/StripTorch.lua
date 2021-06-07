@@ -1,5 +1,4 @@
 ---
----
 --- A variant of torch that is made to put torches through a strip mine
 --- Should be used after it's strip-mined
 ---

@@ -1,7 +1,7 @@
 ---
 --- A program I made in-game while testing
 ---
----
+
 --- Refuel and set variable
 turtle.select(2)
 turtle.refuel()

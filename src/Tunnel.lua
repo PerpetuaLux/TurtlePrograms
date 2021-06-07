@@ -1,8 +1,6 @@
 ---
 --- A variant of StripMine meant to dig a big main tunnel for the mine
 ---
----
----
 
 --- First the variables
 tunnelLength = 128 --- The length of the tunnel

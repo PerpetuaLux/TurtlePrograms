@@ -1,5 +1,4 @@
 ---
----
 --- A variant of torch that is made to put torches around a tunnel
 --- Should be used after it's strip-mined, and strip-torched
 ---

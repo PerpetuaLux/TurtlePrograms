@@ -1,7 +1,7 @@
 ---
 --- An advanced version of mine that uses functions and works a little better
 ---
----
+
 --- Starts by setting the variable that controls the length of the strip
 length = 32
 --- And then refueling
