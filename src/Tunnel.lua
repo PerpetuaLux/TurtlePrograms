@@ -15,7 +15,7 @@ function deposit ()
     turtle.select(1)
     turtle.placeDown()
     --- It then sets the variable for the repeat block to go through the inventory
-    a = 16
+    local a = 16
     repeat
         --- It selects the next slot, and puts the items into the chest below
         turtle.select(a)
@@ -69,7 +69,7 @@ end
 function tunnel ()
 
     --- Get the maximum width  based on fuel
-    a = turtle.getFuelLevel()
+    local a = turtle.getFuelLevel()
     fuelWidth = math.floor(a / (tunnelLength * 1.1))
     --- Set the maxStrips to the lowest of either maxStrips or fuelStrips
     if fuelWidth < tunnelWidth then
@@ -78,7 +78,7 @@ function tunnel ()
     end
 
     --- Start strip mining
-    strips = tunnelWidth
+    local strips = tunnelWidth
     repeat
         --- Digs the strip, turns and moves 3 blocks, then digs back
         dig(tunnelLength)

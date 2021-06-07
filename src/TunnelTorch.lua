@@ -56,7 +56,7 @@ end
 
 function light()
     --- Place torches and move for the length of the tunnel, 1 torch every 6 blocks
-    x = math.floor(tunnelLength / 6)
+    local x = math.floor(tunnelLength / 6)
     repeat
         placeTorch()
         move(6)

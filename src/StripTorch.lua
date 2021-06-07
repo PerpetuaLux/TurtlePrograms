@@ -62,7 +62,7 @@ end
 
 function light()
     --- Place torches and move for the length of the strip, 1 torch every 6 blocks
-    x = math.floor(stripLength / 6)
+    local x = math.floor(stripLength / 6)
     repeat
         placeTorch()
         move(6)

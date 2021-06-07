@@ -113,10 +113,10 @@ end
 --- And finally the consume function
 
 function consume()
-    height = consumeHeight
+    local height = consumeHeight
     repeat
         --- First it digs the level
-        width = consumeWidth
+        local width = consumeWidth
         repeat
             --- Digs the strip, turns and moves 3 blocks, then digs back
             dig(consumeLength)
