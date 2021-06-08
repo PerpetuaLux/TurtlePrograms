@@ -79,6 +79,7 @@ stripMineCode = getFile(stripMineURL)
 tunnelTorchCode = getFile(tunnelTorchURL)
 stripTorchCode = getFile(stripTorchURL)
 
+--- Checks if the code is present, if it is it updates the code
 if consumeCode ~= nil then
     updateCode(consumeCode, consumeLocation, consumeName)
 end
