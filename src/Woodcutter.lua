@@ -37,6 +37,7 @@ function waitForWood ()
             --- If it is wood, then chop
             if blockData.name == "minecraft:spruce_log" then
                 chop()
+                plant()
             end
         end
         --- After checking and before checking again, wait for 20 seconds to prevent server lag
