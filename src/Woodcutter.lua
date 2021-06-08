@@ -76,6 +76,8 @@ function chop ()
     turtle.forward()
     turtle.turnLeft()
     turtle.turnLeft()
+    --- Deposit wood
+    deposit()
 end
 
 --- Function to replenish saplings
