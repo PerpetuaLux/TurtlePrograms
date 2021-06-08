@@ -2,6 +2,7 @@
 --- A program to harvest wood automatically
 ---
 
+waitTime = 20
 
 --- Function to deposit the items
 function deposit ()
@@ -25,9 +26,8 @@ end
 
 --- Function to check for wood
 function waitForWood ()
-    local waiting = true
 
-    while waiting do
+    while true do
         --- inspect block in front
         local isBlock, blockData = turtle.inspect()
         --- If there is not block, then plant saplings
@@ -41,12 +41,41 @@ function waitForWood ()
             end
         end
         --- After checking and before checking again, wait for 20 seconds to prevent server lag
+        sleep(waitTime)
     end
 end
 
 --- Function to chop the tree
 function chop ()
 
+    --- Move forward once
+    turtle.dig()
+    turtle.forward()
+    --- Dig forward and up and move up until wood is no longer above
+    repeat
+        local isBlock, _ = turtle.inspect()
+        turtle.dig()
+        turtle.digUp()
+        turtle.up()
+    until isBlock == false
+    --- Move right and then repeat the process going down
+    turtle.turnRight()
+    turtle.dig()
+    turtle.forward()
+    turtle.turnLeft()
+    repeat
+        turtle.dig()
+        turtle.digDown()
+        turtle.down()
+        local _, blockData = turtle.inspectDown()
+    until blockData.name == "minecraft:podzol"
+    --- Move back to the starting position
+    turtle.turnLeft()
+    turtle.forward()
+    turtle.turnLeft()
+    turtle.forward()
+    turtle.turnLeft()
+    turtle.turnLeft()
 end
 
 --- Function to replenish saplings
