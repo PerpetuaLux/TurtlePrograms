@@ -6,7 +6,7 @@ waitTime = 20
 
 --- Function to deposit the items
 function deposit ()
-    --- It makes sure slot 1 is selected, which should hold the remote chest, and then places it below itself
+    --- It makes sure slot 1 is selected, which should hold the remote chest, and then places it above itself
     --- It also makes sure the space above it is clear
     turtle.digUp()
     turtle.select(1)
@@ -26,7 +26,6 @@ end
 
 --- Function to check for wood
 function waitForWood ()
-
     while true do
         --- inspect block in front
         local isBlock, blockData = turtle.inspect()
@@ -47,7 +46,6 @@ end
 
 --- Function to chop the tree
 function chop ()
-
     --- Move forward once
     turtle.dig()
     turtle.forward()
@@ -69,6 +67,7 @@ function chop ()
         turtle.down()
         local _, blockData = turtle.inspectDown()
     until blockData.name == "minecraft:podzol"
+    turtle.dig()
     --- Move back to the starting position
     turtle.turnLeft()
     turtle.forward()
@@ -80,7 +79,30 @@ end
 
 --- Function to replenish saplings
 function plant ()
+    --- Select sapling
+    turtle.select(2)
+    --- Move forward twice, turn right and plant
+    turtle.forward()
+    turtle.forward()
+    turtle.turnRight()
+    turtle.place()
+    --- Turn right, move forward, then turn around and plant
+    turtle.turnRight()
+    turtle.forward()
+    turtle.turnRight()
+    turtle.turnRight()
+    turtle.place()
+    --- Turn right and plant, then turn right and move forward
+    turtle.turnRight()
+    turtle.place()
+    turtle.turnRight()
+    turtle.forward()
+    --- Turn around and plant
+    turtle.turnRight()
+    turtle.turnRight()
+    turtle.place()
 
+    turtle.select(1)
 end
 
 waitForWood()
