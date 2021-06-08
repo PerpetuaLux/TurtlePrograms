@@ -10,6 +10,7 @@ tunnelLocation = '/tunnel.lua'
 stripMineLocation = '/stripmine.lua'
 tunnelTorchLocation = '/tunneltorch.lua'
 stripTorchLocation = '/striptorch.lua'
+woodcutterLocation = '/woodcutter.lua'
 
 --- Create strings for all the url locations
 consumeURL = "https://raw.githubusercontent.com/PerpetuaLux/TurtlePrograms/main/src/Consume.lua"
@@ -17,6 +18,7 @@ tunnelURL = "https://raw.githubusercontent.com/PerpetuaLux/TurtlePrograms/main/s
 stripMineURL = "https://raw.githubusercontent.com/PerpetuaLux/TurtlePrograms/main/src/StripMine.lua"
 tunnelTorchURL = "https://raw.githubusercontent.com/PerpetuaLux/TurtlePrograms/main/src/TunnelTorch.lua"
 stripTorchURL = "https://raw.githubusercontent.com/PerpetuaLux/TurtlePrograms/main/src/StripTorch.lua"
+woodcutterURL = "https://raw.githubusercontent.com/PerpetuaLux/TurtlePrograms/main/src/Woodcutter.lua"
 
 --- Create strings for all the plaintext names
 consumeName = 'Consume'
@@ -24,6 +26,7 @@ tunnelName = 'Tunnel'
 stripMineName = 'StripMine'
 tunnelTorchName = 'TunnelTorch'
 stripTorchName = 'StripTorch'
+woodcutterName = 'Woodcutter'
 
 --- A function to update the code
 function updateCode(code, location, name)
@@ -78,6 +81,7 @@ tunnelCode = getFile(tunnelURL)
 stripMineCode = getFile(stripMineURL)
 tunnelTorchCode = getFile(tunnelTorchURL)
 stripTorchCode = getFile(stripTorchURL)
+woodcutterCode = getFile(woodcutterURL)
 
 --- Checks if the code is present, if it is it updates the code
 if consumeCode ~= nil then
@@ -94,6 +98,9 @@ if tunnelTorchCode ~= nil then
 end
 if stripTorchCode ~= nil then
     updateCode(stripTorchCode, stripTorchLocation, stripTorchName)
+end
+if woodcutterCode ~= nil then
+    updateCode(woodcutterCode, woodcutterLocation, woodcutterName)
 end
 
 ---
