@@ -2,6 +2,8 @@
 --- A program meant to fetch and if needed update my various programs automatically - pastebin get hv06VNpm sync
 ---
 
+--- It's possible to make a table containing tables containing the strings for things, and then just iterate through it instead of manually setting all the stuff, but I wont, I'm lazy
+
 --- Create the strings for all the filenames
 consumeLocation = '/consume.lua'
 tunnelLocation = '/tunnel.lua'
